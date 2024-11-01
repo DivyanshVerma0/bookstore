@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - ChapterOne Bookstore</title>
+
+    <link rel="stylesheet" href="style.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <style>
+        /* Font imports */
+        @import url('https://fonts.googleapis.com/css2?family=Questrial&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Mr+De+Haviland&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+
+        /* General styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background: #eaeaea;
+            color: #00154d;
+            font-family: 'Poppins', sans-serif;
+            overflow-y: auto; /* Enable scrolling */
+        }
+
+        /* Header styles */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 30px 8%;
+            background: transparent;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 100;
+        }
+
+        .logo {
+            font-size: 25px;
+            color: #222;
+            text-decoration: none;
+            font-weight: 600;
+            opacity: 1;
+            animation: slideRight 0.5s ease forwards;
+        }
+
+        .navbar a {
+            display: inline-block;
+            font-size: 18px;
+            color: #222;
+            text-decoration: none;
+            font-weight: 500;
+            margin: 0 20px;
+            transition: 0.3s;
+            opacity: 0;
+            animation: slideTop 1s ease forwards;
+            animation-delay: calc(0.2s * var(--i));
+        }
+
+        .navbar a:hover, 
+        .navbar a.active {
+            color: #b7b7b9;
+        }
+
+        .social-media {
+            display: flex;
+            justify-content: space-between;
+            width: 150px;
+            height: 40px;
+        }
+
+        .social-media a {
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            width: 40px;
+            height: 40px;
+            background: transparent;
+            border: 2px solid transparent;
+            text-decoration: none;
+            transform: rotate(45deg);
+            transition: 0.5s;
+            opacity: 0;
+            animation: slideSci 1s ease forwards;
+            animation-delay: calc(0.2s * var(--i));
+        }
+
+        .social-media a:hover {
+            border-color: #65350F;
+        }
+
+        .social-media a i {
+            font-size: 24px;
+            color: #65350F;
+            transform: rotate(-45deg);
+        }
+
+        /* Main container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            margin-top: 120px; /* Space between navbar and content */
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 3em;
+            margin-bottom: 20px;
+        }
+
+        .section-title {
+            font-size: 2em;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #00154d;
+            padding-bottom: 5px;
+            display: inline-block;
+        }
+
+        .contact-info {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .contact-info p {
+            font-size: 1.2em;
+            margin-bottom: 10px;
+        }
+
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .contact-form form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .contact-form input, 
+        .contact-form textarea {
+            padding: 15px;
+            margin-bottom: 20px;
+            border: 2px solid #00154d;
+            border-radius: 5px;
+            font-size: 1.1em;
+            outline: none;
+            resize: none;
+        }
+
+        .contact-form input[type="submit"] {
+            background-color: #00154d;
+            color: white;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .contact-form input[type="submit"]:hover {
+            background-color: #b7b7b9;
+        }
+
+        /* Animations */
+        @keyframes slideRight {
+            0% {
+                transform: translateX(-100px);
+                opacity: 0;
+            }
+            100% {
+                transform: translateX(0px);
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideLeft {
+            0% {
+                transform: translateX(100px);
+                opacity: 0;
+            }
+            100% {
+                transform: translateX(0px);
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideTop {
+            0% {
+                transform: translateY(80px);
+                opacity: 0;
+            }
+            100% {
+                transform: translateY(0px);
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideSci {
+            0% {
+                transform: translateX(100px) rotate(45deg);
+                opacity: 0;
+            }
+            100% {
+                transform: translateX(0px) rotate(45deg);
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header (Navbar) -->
+    <header class="header">
+        <a href="#" class="logo">ChapterOne</a>
+        
+        <nav class="navbar">
+            <a href="index.html" style="--i:1;">Home</a>
+            <a href="shop.html" style="--i:2;">Shop</a>
+            <a href="#" style="--i:3;">Featured</a>
+            <a href="about.html" style="--i:4;">About</a>
+            <a href="contact.html" class="active" style="--i:5;">Contact</a>
+            <a href="cart.html" style="--i:6;" class="cart-link">
+                <i class='bx bx-cart'></i> Cart (<span id="cart-count">0</span>)
+            </a>
+            <a href="login.html" style="--i:7;"></a>
+                <i class='bx bx-user'></i> Login
+            </a>
+        </nav>
+
+        <div class="social-media">
+            <a href="#" style="--i:1;"><i class='bx bxl-twitter'></i></a>
+            <a href="#" style="--i:2;"><i class='bx bxl-instagram'></i></a>
+            <a href="#" style="--i:3;"><i class='bx bxl-github'></i></a>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <div class="container">
+        <h1>Contact Us</h1>
+
+        <div class="contact-info">
+            <p>Feel free to reach out to us with any inquiries or questions.</p>
+            <p>Email: contact@chapterone.com</p>
+            <p>Phone: +91 123 456 7890</p>
+        </div>
+
+        <div class="contact-form">
+            <form action="#" method="POST">
+                <input type="text" name="name" placeholder="Your Name" required>
+                <input type="email" name="email" placeholder="Your Email" required>
+                <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+                <input type="submit" value="Send Message">
+            </form>
+        </div>
+    </div>
+
+</body>
+</html>
